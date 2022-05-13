@@ -19,8 +19,10 @@ stack_t *add_dnodeint(stack_t **stack)
 	nhead = malloc(sizeof(**stack));
 	if (nhead == NULL)
 	{
-		exit;
+		return (NULL);
 	}
+	else
+	{
 	nhead->n = 1;
 	nhead->next = (*stack);
 	nhead->prev = NULL;
@@ -28,4 +30,6 @@ stack_t *add_dnodeint(stack_t **stack)
 	if (*stack != NULL)
 		(*stack)->prev = nhead;
 	(*stack) = nhead;
+	return (*stack);
+	}
 }
