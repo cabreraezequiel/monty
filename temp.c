@@ -8,7 +8,7 @@ stack_t *check(stack_t **stack, char *line)
 		{"pall", print_stack},
 		{NULL, NULL}
 	};
-	int i = 0;
+	int i = 0, checker = 0;
 	char *buf;
 
 	value = NULL;
@@ -20,6 +20,7 @@ stack_t *check(stack_t **stack, char *line)
 	{
 		if (strcmp(buf, inst[i].opcode) == 0)
 		{
+			checker = 1;
 			buf = strtok(NULL, " \t\n");
 			if (buf != NULL)
 				value = buf;
@@ -28,6 +29,8 @@ stack_t *check(stack_t **stack, char *line)
 
 		}
 	}
+	if (checker == 0)
+		fprintf(stderr, "L2: unknown instruction %s\n", buf);
 	}
 	return (NULL);
 }
