@@ -7,7 +7,7 @@ int main(int argc, char **argv)
 	FILE *fd;
 	char line[256];
 
-	if (argc < 2)
+	if (argc < 2 || argc > 3)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE); }

@@ -8,6 +8,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stddef.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -46,6 +47,6 @@ stack_t *add_dnodeint_end(stack_t **head, const int n);
 stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index);
 stack_t *check(stack_t **head, char *line);
 stack_t *add_dnodeint(stack_t **stack);
-extern int value;
+extern char *value;
 extern stack_t *stack;
 #endif /* MONTY_H */

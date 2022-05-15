@@ -1,5 +1,5 @@
 #include "monty.h"
-int value = 0;
+char *value;
 
 stack_t *check(stack_t **stack, char *line)
 {
@@ -11,18 +11,23 @@ stack_t *check(stack_t **stack, char *line)
 	int i = 0;
 	char *buf;
 
+	value = NULL;
+	if (line != NULL)
+	{
 	buf = strdup(line);
 	buf = strtok(buf, " \t\n");
 	for (i = 0; inst[i].opcode != NULL; i++)
 	{
 		if (strcmp(buf, inst[i].opcode) == 0)
 		{
-			if ((buf = (strtok(NULL, " \t\n"))) != NULL)
-				value = atoi(buf);
+			buf = strtok(NULL, " \t\n");
+			if (buf != NULL)
+				value = buf;
 			inst[i].f(stack, 0);
 			return(*stack);
 
 		}
+	}
 	}
 	return (NULL);
 }
