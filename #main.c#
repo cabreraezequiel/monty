@@ -25,6 +25,7 @@ int main(int argc, char **argv)
 		check(&stack, line, line_number); }
 
 	fclose(fd);
+	free_stack(stack);
 
 	return (0);
 }

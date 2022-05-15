@@ -1,7 +1,7 @@
 #include "monty.h"
 char *value;
 
-stack_t *check(stack_t **stack, char *line)
+stack_t *check(stack_t **stack, char *line, unsigned int line_number)
 {
 	instruction_t inst[] = {
 		{"push", push},
@@ -24,13 +24,13 @@ stack_t *check(stack_t **stack, char *line)
 			buf = strtok(NULL, " \t\n");
 			if (buf != NULL)
 				value = buf;
-			inst[i].f(stack, 0);
+			inst[i].f(stack, line_number);
 			return(*stack);
 
 		}
 	}
 	if (checker == 0)
-		fprintf(stderr, "L2: unknown instruction %s\n", buf);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, buf);
 	}
 	return (NULL);
 }

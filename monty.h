@@ -45,8 +45,9 @@ void push(stack_t **stack, unsigned int line_number);
 void print_stack(stack_t **stack, unsigned int line_number);
 stack_t *add_dnodeint_end(stack_t **head, const int n);
 stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index);
-stack_t *check(stack_t **head, char *line);
+stack_t *check(stack_t **head, char *line, unsigned int line_number);
 stack_t *add_dnodeint(stack_t **stack);
+void free_stack(stack_t *head);
 extern char *value;
 extern stack_t *stack;
 #endif /* MONTY_H */
