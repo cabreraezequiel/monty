@@ -47,4 +47,5 @@ stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index);
 stack_t *check(stack_t **head, char *line);
 stack_t *add_dnodeint(stack_t **stack);
 extern int value;
+extern stack_t *stack;
 #endif /* MONTY_H */

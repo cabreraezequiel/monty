@@ -1,7 +1,7 @@
 #include "monty.h"
 int value = 0;
 
-stack_t *check(stack_t **head, char *line)
+stack_t *check(stack_t **stack, char *line)
 {
 	instruction_t inst[] = {
 		{"push", push},
@@ -19,8 +19,8 @@ stack_t *check(stack_t **head, char *line)
 		{
 			if ((buf = (strtok(NULL, " \t\n"))) != NULL)
 				value = atoi(buf);
-			inst[i].f(head, 0);
-			return(*head);
+			inst[i].f(stack, 0);
+			return(*stack);
 
 		}
 	}

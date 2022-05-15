@@ -1,8 +1,9 @@
 #include "monty.h"
 
+stack_t *stack = NULL;
+
 int main(int argc, char **argv)
 {
-	stack_t **head = NULL;
 	FILE *fd;
 	char line[256];
 
@@ -19,7 +20,7 @@ int main(int argc, char **argv)
 
 	while (fgets(line, sizeof(line), fd))
 	{
-		check(head, line); }
+		check(&stack, line); }
 
 	fclose(fd);
 	return (0);

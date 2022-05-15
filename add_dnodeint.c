@@ -1,10 +1,5 @@
 #include "monty.h"
 
-void push(stack_t **stack, __attribute__((unused))unsigned int line_number)
-{
-	add_dnodeint(stack);
-}
-
 /**
  * add_dnodeint - adds a new node at the beginning of a dlistint_t list
  * @head: head
@@ -12,24 +7,23 @@ void push(stack_t **stack, __attribute__((unused))unsigned int line_number)
  * Return: new head
  */
 
-stack_t *add_dnodeint(stack_t **stack)
+void push(stack_t **stack, __attribute__((unused))unsigned int line_number)
 {
 	stack_t *nhead;
 
-	nhead = malloc(sizeof(**stack));
+	nhead = malloc(sizeof(stack_t));
 	if (nhead == NULL)
 	{
-		return (NULL);
+		printf("Malloc failed\n");
 	}
 	else
 	{
-	nhead->n = 1;
+	nhead->n = value;
 	nhead->next = (*stack);
 	nhead->prev = NULL;
 
 	if (*stack != NULL)
 		(*stack)->prev = nhead;
 	(*stack) = nhead;
-	return (*stack);
 	}
 }
